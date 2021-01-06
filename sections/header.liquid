@@ -1,7 +1,17 @@
-<header id="header">
-  <div class="container">
-    <nav>
-      {% for link in linklists.header.links %}
+{% if section.settings.show_ann %}
+  <div class="py-4 border-b border-gray-100">
+    <div class="container">
+      <div class="text-xs">
+        {{ section.settings.announce }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+<header id="header" class="py-4 border-b border-gray-100">
+  <div class="container flex items-center justify-between">
+    <h1><a href="{{ shop.url }}">{{ shop.name }}</a></h1>
+    <nav class="space-x-4">
+      {% for link in linklists[section.settings.main_menu].links %}
         {% assign child_list_handle = link.title | handleize %}
         {% if linklists[child_list_handle].links != blank %}
           <a class="hover:text-brand {% if link.current %}text-brand border-b border-brand{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
@@ -19,42 +29,32 @@
 {% schema %}
   {
     "name": "Header",
-    "class": "sticky top-0 z-50",
+    "class": "relative",
     "settings": [
       {
-        "type":   "link_list",
-        "id":     "main_menu",
-        "label":  "Main Menu"
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "link_list",
+        "id": "main_menu",
+        "label": "Main Menu"
+      },
+      {
+        "type": "header",
+        "content": "Announcement Bar"
       },
       {
         "type": "checkbox",
-        "id": "sticky_header",
-        "label": "Sticky Announce",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_newsletter",
-        "label": "Enable Newsletter",
+        "id": "show_ann",
+        "label": "Show Announcement Bar",
         "default": true
       },
       {
         "type": "text",
-        "id": "popup_delay",
-        "label": "Popup Delay",
-        "default": "2000"
-      },
-      {
-        "type": "text",
-        "id": "popup_title",
-        "label": "Pop Up Title",
-        "default": "Take 15% off"
-      },
-      {
-        "type": "textarea",
-        "id": "popup_desc",
-        "label": "Pop Up Desc",
-        "default": "First-time customers, use <br>coupon code 'herauxskin15'"
+        "id": "announce",
+        "label": "Announce Text",
+        "default": "Free shipping on orders over $200"
       }
     ]
   }

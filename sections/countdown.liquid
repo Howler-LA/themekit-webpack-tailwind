@@ -1,4 +1,4 @@
-<div class="py-2 bg-brand">
+<div class="py-2 bg-black">
   <div class="container">
     <div class="text-xs uppercase font-semibold tracking-widest text-white text-center">
       {{ section.settings.ann }}
@@ -8,7 +8,7 @@
 
 {% schema %}
   {
-    "name": "Accouncement",
+    "name": "Countdown",
     "settings": [
       {
         "type": "checkbox",
@@ -21,6 +21,13 @@
         "id": "ann",
         "label": "Announce Text",
         "default": "Free shipping on orders over $200"
+      }
+    ],
+    "presets": [
+      {
+        "category": "Header",
+        "name": "Countdown",
+        "settings": {}
       }
     ]
   }
