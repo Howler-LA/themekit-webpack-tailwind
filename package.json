@@ -5,9 +5,13 @@
   "author": "Chase Ohlson",
   "license": "MIT",
   "dependencies": {
+    "@tailwindcss/ui": "^0.7.2",
     "babel-polyfill": "^6.26.0",
     "jquery": "^3.5.1",
-    "tailwindcss": "^1.9.2"
+    "postcss": "^8.2.2",
+    "tailwindcss": "^2.0.2",
+    "tailwindcss-aspect-ratio": "^3.0.0",
+    "tailwindcss-blend-mode": "^1.0.0"
   },
   "scripts": {
     "dev": "concurrently \"yarn watch:code\" \"yarn watch:shopify\"",

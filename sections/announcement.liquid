@@ -1,0 +1,27 @@
+<div class="py-2 bg-brand">
+  <div class="container">
+    <div class="text-xs uppercase font-semibold tracking-widest text-white text-center">
+      {{ section.settings.ann }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Accouncement",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_ann",
+        "label": "Announce",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ann",
+        "label": "Announce Text",
+        "default": "Free shipping on orders over $200"
+      }
+    ]
+  }
+{% endschema %}
